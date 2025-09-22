@@ -20,15 +20,16 @@ int main()
     ifstream fin;
     fin.open("Test_Data.txt");
     string feed = "Fail";
-    vector<string> fullList(1);
+    vector<string> fullList;
 
     //Opens up the file and feeds all of the elements into the array
     if(fin.good())
     {
-        fullList.resize(30);
+        
         for(int i = 0; i < SIZE; i++)
         {
             getline(fin,feed);
+            fullList.resize(i+1);
             fullList[i] = feed;
             cout << fullList[i] << "\n";
         }
@@ -39,7 +40,7 @@ int main()
     {
         cout << "File not found.\n";
     }
-/*
+
     //Searches for the word pen.
     string hunt = "pen";
     vector<string>::iterator finder;
@@ -48,8 +49,8 @@ int main()
 
     //Gives various bits of information about the array such as size, element location, and
     //first and last elements.
-    cout << "The vector is " << fullList[0] << " elements long\n";
+    cout << "The vector is " << fullList.size() << " elements long\n";
     cout << "Element 5 is " << fullList[4] << "\n";
     cout << "The front and back elements are: " << fullList.front() << " and " << fullList.back() << "\n";
-    */
+    
 }
