@@ -4,7 +4,7 @@ IDE used: VSC*/
 #include <iostream>
 #include <algorithm>  
 #include <numeric>    
-#include <array>
+#include <vector>
 #include <fstream>
 #include <string>
 using namespace std;
@@ -20,11 +20,12 @@ int main()
     ifstream fin;
     fin.open("Test_Data.txt");
     string feed = "Fail";
-    array<string, SIZE> fullList;
+    vector<string> fullList(1);
 
     //Opens up the file and feeds all of the elements into the array
     if(fin.good())
     {
+        fullList.resize(30);
         for(int i = 0; i < SIZE; i++)
         {
             getline(fin,feed);
@@ -38,17 +39,17 @@ int main()
     {
         cout << "File not found.\n";
     }
-
+/*
     //Searches for the word pen.
     string hunt = "pen";
-    array<string, SIZE>::iterator finder;
+    vector<string>::iterator finder;
     finder = find(fullList.begin(), fullList.end(), hunt);
     cout << "The word " << hunt << " was found\n";
 
     //Gives various bits of information about the array such as size, element location, and
     //first and last elements.
-    cout << "The array is " << fullList.size() << " elements long\n";
+    cout << "The vector is " << fullList[0] << " elements long\n";
     cout << "Element 5 is " << fullList[4] << "\n";
     cout << "The front and back elements are: " << fullList.front() << " and " << fullList.back() << "\n";
-    
+    */
 }
